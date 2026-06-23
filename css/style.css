@@ -357,15 +357,47 @@ button{-webkit-tap-highlight-color:transparent}
   padding:36px 0;background:#fff;
   border-top:1px solid var(--g200);
   border-bottom:1px solid var(--g200);
+  overflow:hidden;
+}
+/* Override container so the track can go full-width */
+.logos-section .container{
+  width:100%;max-width:100%;padding:0;overflow:hidden;
+}
+.logos__track-wrapper{
+  display:flex;
+  /* fade edges */
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
 }
 .logos__list{
   display:flex;align-items:center;
-  justify-content:center;gap:4rem;flex-wrap:wrap;
+  gap:4rem;flex-wrap:nowrap;flex-shrink:0;
+  animation:marquee 18s linear infinite;
+  padding:0 2rem;
 }
+/* Duplicate set for seamless loop */
+.logos__list--clone{
+  display:flex;align-items:center;
+  gap:4rem;flex-wrap:nowrap;flex-shrink:0;
+  animation:marquee 18s linear infinite;
+  padding:0 2rem;
+  aria-hidden:true;
+}
+@keyframes marquee{
+  0%  {transform:translateX(0)}
+  100%{transform:translateX(-100%)}
+}
+/* Pause on hover/focus */
+.logos-section:hover .logos__list,
+.logos-section:hover .logos__list--clone{
+  animation-play-state:paused;
+}
+
 .logo-item{
   display:flex;align-items:center;gap:7px;
   opacity:.45;filter:grayscale(1);
   transition:opacity .3s,filter .3s;
+  white-space:nowrap;flex-shrink:0;
 }
 .logo-item:hover{opacity:1;filter:grayscale(0)}
 .logo-text{font-family:var(--sans);font-size:1.15rem;font-weight:700;color:var(--black);line-height:1}
@@ -781,9 +813,8 @@ button{-webkit-tap-highlight-color:transparent}
     height:320px;gap:10px;
   }
 
-  /* logos */
-  .logos__list{gap:2rem}
-  .logo-text{font-size:1rem}
+  /* logos — marquee stays single-line, just slightly smaller text */
+  .logo-text{font-size:.95rem}
 
   /* projects */
   .projects__grid{grid-template-columns:1fr;gap:1.5rem}
