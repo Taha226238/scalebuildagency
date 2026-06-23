@@ -350,65 +350,7 @@ button{-webkit-tap-highlight-color:transparent}
 @keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 
-/* ═══════════════════════════════════════════════
-   LOGOS
-═══════════════════════════════════════════════ */
-.logos-section{
-  padding:36px 0;background:#fff;
-  border-top:1px solid var(--g200);
-  border-bottom:1px solid var(--g200);
-  overflow:hidden;
-}
-/* Override container so the track can go full-width */
-.logos-section .container{
-  width:100%;max-width:100%;padding:0;overflow:hidden;
-}
-.logos__track-wrapper{
-  display:flex;
-  /* fade edges */
-  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
-  mask-image:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
-}
-.logos__list{
-  display:flex;align-items:center;
-  gap:4rem;flex-wrap:nowrap;flex-shrink:0;
-  animation:marquee 18s linear infinite;
-  padding:0 2rem;
-}
-/* Duplicate set for seamless loop */
-.logos__list--clone{
-  display:flex;align-items:center;
-  gap:4rem;flex-wrap:nowrap;flex-shrink:0;
-  animation:marquee 18s linear infinite;
-  padding:0 2rem;
-  aria-hidden:true;
-}
-@keyframes marquee{
-  0%  {transform:translateX(0)}
-  100%{transform:translateX(-100%)}
-}
-/* Pause on hover/focus */
-.logos-section:hover .logos__list,
-.logos-section:hover .logos__list--clone{
-  animation-play-state:paused;
-}
 
-.logo-item{
-  display:flex;align-items:center;gap:7px;
-  opacity:.45;filter:grayscale(1);
-  transition:opacity .3s,filter .3s;
-  white-space:nowrap;flex-shrink:0;
-}
-.logo-item:hover{opacity:1;filter:grayscale(0)}
-.logo-text{font-family:var(--sans);font-size:1.15rem;font-weight:700;color:var(--black);line-height:1}
-.logo-lovable{font-size:1.1rem;font-weight:700}
-.logo-bolt{font-size:1.3rem;font-weight:900;font-style:italic;letter-spacing:-.03em}
-.logo-kiro{
-  font-size:1.2rem;font-weight:700;letter-spacing:.08em;
-  color:transparent;-webkit-text-stroke:1.8px #9b72f5;font-family:var(--serif);
-}
-.logo-framer{font-size:1.1rem;font-weight:600}
-.logo-v0{font-size:1.3rem;font-weight:900;letter-spacing:-.05em}
 
 /* ═══════════════════════════════════════════════
    PROJECTS
@@ -813,10 +755,7 @@ button{-webkit-tap-highlight-color:transparent}
     height:320px;gap:10px;
   }
 
-  /* logos — marquee stays single-line, just slightly smaller text */
-  .logo-text{font-size:.95rem}
 
-  /* projects */
   .projects__grid{grid-template-columns:1fr;gap:1.5rem}
 
   /* services */
